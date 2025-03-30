@@ -2,20 +2,23 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import Container from "@/app/components/ui/Container";
 import Typography from "@/app/components/ui/Typography";
 import Centered from "@/app/components/ui/Centered";
 import Input from "@/app/components/ui/Input";
+import Button from "@/app/components/ui/Button";
 import franqLogo from "@/app/assets/images/franq-logo.svg";
 // import trading from "@/app/assets/images/trading.avif";
 import trading from "@/app/assets/images/photo-1579226905180-636b76d96082.png";
-import Button from "@/app/components/ui/Button";
 
 const LoginPage = () => {
+  const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
+
+  const handleVoltar = () => router.push("/login");
 
   return (
     <Container className="min-h-screen">
@@ -28,11 +31,23 @@ const LoginPage = () => {
         >
           <Image src={franqLogo} alt="" />
           <Typography className="text-4xl" font="sora">
-            Login
+            Cadastro
           </Typography>
           <Typography className="text-xl text-black/75">
-            Faça Login para acessar sua conta
+            Cadastre-se para acessar a plataforma
           </Typography>
+          <Input
+            placeholder="Nome Completo*"
+            value={email}
+            setValue={setEmail}
+          />
+          <Input placeholder="CPF*" value={email} setValue={setEmail} />
+          <Input
+            placeholder="Data de Nascimento*"
+            value={email}
+            setValue={setEmail}
+          />
+          <Input placeholder="Telefone*" value={email} setValue={setEmail} />
           <Input placeholder="Email" value={email} setValue={setEmail} />
           <Input
             placeholder="Senha"
@@ -40,17 +55,14 @@ const LoginPage = () => {
             setValue={setSenha}
             password
           />
-          <Button label="Login" primary />
-          <Centered justify="start" className="gap-x-1.5">
-            <Typography className="text-xl text-black/75">
-              Ainda não tem uma conta?
-            </Typography>
-            <Link href="/cadastro">
-              <Typography className="text-xl text-[#0057FC]" weight="600">
-                Cadastre-se
-              </Typography>
-            </Link>
-          </Centered>
+          <Input
+            placeholder="Confirmar Senha"
+            value={senha}
+            setValue={setSenha}
+            password
+          />
+          <Button label="Concluir cadastro" primary />
+          <Button label="Voltar" secondary onClick={handleVoltar} />
         </Centered>
         <Centered
           className="hidden md:flex md:w-1/2"

@@ -34,7 +34,7 @@ const Button: FC<ButtonProps> = ({
         primary
           ? "bg-[#0057FC] hover:bg-[#0057FC]/90 border-0"
           : secondary
-          ? "bg-white border border-[#0057FC] hover:bg-[#0057FC]/10"
+          ? "bg-[inherit] border border-[#0057FC] hover:bg-[#0057FC]/10"
           : "",
         disabled && "bg-[#E9ECEF] hover:bg-[#E9ECEF] hover:cursor-not-allowed",
         full && "w-full",
