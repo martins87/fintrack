@@ -1,9 +1,10 @@
+import Centered from "./components/ui/Centered";
 import Typography from "./components/ui/Typography";
 
 export default function Home() {
   return (
     <main>
-      <div className="flex flex-col items-center justify-center">
+      <Centered>
         <Typography className="text-6xl text-white">FinTrack</Typography>
         <Typography className="text-6xl text-white" weight="500">
           FinTrack
@@ -14,7 +15,7 @@ export default function Home() {
         <Typography className="text-6xl text-white" weight="700" font="sora">
           FinTrack
         </Typography>
-      </div>
+      </Centered>
     </main>
   );
 }
