@@ -1,9 +1,17 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  FC,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { useRouter } from "next/navigation";
 
-const SESSION_DURATION_MINUTES = 5; // change to 30 later on
+const ONE_MINUTE = 60 * 1000;
+const SESSION_DURATION_MINUTES = 30;
 
 interface SessionContextType {
   isAuthenticated: boolean;
@@ -19,7 +27,9 @@ export const useSession = () => {
   return context;
 };
 
-const SessionProvider = ({ children }: { children: React.ReactNode }) => {
+type SessionProviderProps = { children: ReactNode };
+
+const SessionProvider: FC<SessionProviderProps> = ({ children }) => {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
@@ -28,7 +38,6 @@ const SessionProvider = ({ children }: { children: React.ReactNode }) => {
       const userDataString = localStorage.getItem("userdata");
 
       if (!userDataString) {
-        console.log("No session found");
         setIsAuthenticated(false);
         router.push("/login");
         return;
@@ -36,19 +45,20 @@ const SessionProvider = ({ children }: { children: React.ReactNode }) => {
 
       const userData = JSON.parse(userDataString);
       const currentTime = Date.now();
-      const expirationTime = SESSION_DURATION_MINUTES * 60 * 1000;
+      const expirationTime = SESSION_DURATION_MINUTES * ONE_MINUTE;
 
       if (currentTime - userData.timestamp > expirationTime) {
-        console.log("Session expired");
         localStorage.removeItem("userdata");
+
         setIsAuthenticated(false);
+
         router.push("/login");
       } else {
         setIsAuthenticated(true);
       }
     };
 
-    const interval = setInterval(checkSession, 60 * 1000);
+    const interval = setInterval(checkSession, ONE_MINUTE);
 
     checkSession();
 

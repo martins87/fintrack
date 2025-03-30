@@ -34,8 +34,6 @@ const LoginPage = () => {
       timestamp: Date.now(),
     };
 
-    console.log("userdata", userData);
-
     localStorage.setItem("userdata", JSON.stringify(userData));
 
     router.push("/");

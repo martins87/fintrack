@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
-import SessionProvider from "./components/ui/SessionProvider";
+import SessionProvider from "@/app/components/SessionProvider";
 import "./globals.css";
 
 const sora = localFont({
