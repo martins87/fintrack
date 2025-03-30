@@ -10,13 +10,36 @@ import Centered from "@/app/components/ui/Centered";
 import Input from "@/app/components/ui/Input";
 import Button from "@/app/components/ui/Button";
 import franqLogo from "@/app/assets/images/franq-logo.svg";
-// import trading from "@/app/assets/images/trading.avif";
 import trading from "@/app/assets/images/photo-1579226905180-636b76d96082.png";
 
 const LoginPage = () => {
   const router = useRouter();
+  const [nome, setNome] = useState<string>("");
+  const [cpf, setCpf] = useState<string>("");
+  const [dataNascimento, setDataNascimento] = useState<string>("");
+  const [telefone, setTelefone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
+  const [senhaConfirmacao, setSenhaConfirmacao] = useState<string>("");
+
+  const handleConcluirCadastro = () => {
+    const userData = {
+      nome,
+      cpf,
+      dataNascimento,
+      telefone,
+      email,
+      senha,
+      senhaConfirmacao,
+      timestamp: Date.now(),
+    };
+
+    console.log("userdata", userData);
+
+    localStorage.setItem("userdata", JSON.stringify(userData));
+
+    router.push("/");
+  };
 
   const handleVoltar = () => router.push("/login");
 
@@ -36,18 +59,18 @@ const LoginPage = () => {
           <Typography className="text-xl text-black/75">
             Cadastre-se para acessar a plataforma
           </Typography>
-          <Input
-            placeholder="Nome Completo*"
-            value={email}
-            setValue={setEmail}
-          />
-          <Input placeholder="CPF*" value={email} setValue={setEmail} />
+          <Input placeholder="Nome Completo*" value={nome} setValue={setNome} />
+          <Input placeholder="CPF*" value={cpf} setValue={setCpf} />
           <Input
             placeholder="Data de Nascimento*"
-            value={email}
-            setValue={setEmail}
+            value={dataNascimento}
+            setValue={setDataNascimento}
           />
-          <Input placeholder="Telefone*" value={email} setValue={setEmail} />
+          <Input
+            placeholder="Telefone*"
+            value={telefone}
+            setValue={setTelefone}
+          />
           <Input placeholder="Email" value={email} setValue={setEmail} />
           <Input
             placeholder="Senha"
@@ -57,11 +80,15 @@ const LoginPage = () => {
           />
           <Input
             placeholder="Confirmar Senha"
-            value={senha}
-            setValue={setSenha}
+            value={senhaConfirmacao}
+            setValue={setSenhaConfirmacao}
             password
           />
-          <Button label="Concluir cadastro" primary />
+          <Button
+            label="Concluir cadastro"
+            primary
+            onClick={handleConcluirCadastro}
+          />
           <Button label="Voltar" secondary onClick={handleVoltar} />
         </Centered>
         <Centered
