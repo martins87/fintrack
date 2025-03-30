@@ -1,6 +1,31 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 
 import "./globals.css";
+
+const sora = localFont({
+  src: "./assets/fonts/Sora-SemiBold.ttf",
+  variable: "--font-sora",
+  weight: "600",
+});
+
+const neueMontreal = localFont({
+  src: [
+    {
+      path: "./assets/fonts/NeueMontreal-Regular.otf",
+      weight: "400",
+    },
+    {
+      path: "./assets/fonts/NeueMontreal-Medium.otf",
+      weight: "500",
+    },
+    {
+      path: "./assets/fonts/NeueMontreal-Bold.otf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-neue-montreal",
+});
 
 export const metadata: Metadata = {
   title: "FinTrack",
@@ -15,7 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`${sora.variable} ${neueMontreal.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
