@@ -36,7 +36,7 @@ const LoginPage = () => {
 
     localStorage.setItem("userdata", JSON.stringify(userData));
 
-    router.push("/");
+    router.push("/cotacoes");
   };
 
   const handleVoltar = () => router.push("/login");

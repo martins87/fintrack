@@ -39,7 +39,9 @@ const SessionProvider: FC<SessionProviderProps> = ({ children }) => {
 
       if (!userDataString) {
         setIsAuthenticated(false);
+
         router.push("/login");
+
         return;
       }
 
@@ -58,7 +60,7 @@ const SessionProvider: FC<SessionProviderProps> = ({ children }) => {
       }
     };
 
-    const interval = setInterval(checkSession, ONE_MINUTE);
+    const interval = setInterval(checkSession, 5 * ONE_MINUTE);
 
     checkSession();
 

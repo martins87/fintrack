@@ -8,10 +8,9 @@ import Container from "@/app/components/ui/Container";
 import Typography from "@/app/components/ui/Typography";
 import Centered from "@/app/components/ui/Centered";
 import Input from "@/app/components/ui/Input";
-import franqLogo from "@/app/assets/images/franq-logo.svg";
-// import trading from "@/app/assets/images/trading.avif";
-import trading from "@/app/assets/images/photo-1579226905180-636b76d96082.png";
 import Button from "@/app/components/ui/Button";
+import Logo from "@/app/components/Logo";
+import trading from "@/app/assets/images/photo-1579226905180-636b76d96082.png";
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -26,7 +25,7 @@ const LoginPage = () => {
           items="start"
           justify="start"
         >
-          <Image src={franqLogo} alt="" />
+          <Logo />
           <Typography className="text-4xl" font="sora">
             Login
           </Typography>

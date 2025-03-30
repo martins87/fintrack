@@ -41,7 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sora.variable} ${neueMontreal.variable} antialiased`}>
+      <body
+        className={`${sora.variable} ${neueMontreal.variable} w-full min-h-screen antialiased`}
+      >
         <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
