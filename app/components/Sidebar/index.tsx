@@ -10,7 +10,7 @@ import { sidebarLinks } from "@/app/constants/sidebarLinks";
 const Sidebar = () => {
   return (
     <Centered
-      className="w-64 min-h-screen bg-[#1C1D21] p-10 gap-y-4"
+      className="w-64 min-h-screen bg-[#1C1D21] p-10 gap-y-5"
       direction="col"
       items="start"
       justify="start"

@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 const ONE_MINUTE = 60 * 1000;
 const SESSION_DURATION_MINUTES = 30;
+const EXPIRATION_TIME = SESSION_DURATION_MINUTES * ONE_MINUTE;
 
 interface SessionContextType {
   isAuthenticated: boolean;
@@ -39,21 +40,15 @@ const SessionProvider: FC<SessionProviderProps> = ({ children }) => {
 
       if (!userDataString) {
         setIsAuthenticated(false);
-
         router.push("/login");
-
         return;
       }
 
       const userData = JSON.parse(userDataString);
       const currentTime = Date.now();
-      const expirationTime = SESSION_DURATION_MINUTES * ONE_MINUTE;
 
-      if (currentTime - userData.timestamp > expirationTime) {
-        localStorage.removeItem("userdata");
-
+      if (currentTime - userData.timestamp > EXPIRATION_TIME) {
         setIsAuthenticated(false);
-
         router.push("/login");
       } else {
         setIsAuthenticated(true);

@@ -5,9 +5,9 @@ import profile from "@/app/assets/icons/profile.svg";
 import shapes from "@/app/assets/icons/shapes.svg";
 
 export const sidebarLinks = [
-  { label: "DASHBOARD", url: "#", icon: shapes },
-  { label: "TRADE", url: "#", icon: chart },
+  { label: "DASHBOARD", url: "/dashboard", icon: shapes },
+  { label: "TRADE", url: "/trading", icon: chart },
   { label: "COTAÇÕES", url: "/cotacoes", icon: moneyBag },
-  { label: "CARTEIRA", url: "#", icon: wallet },
-  { label: "PERFIL", url: "#", icon: profile },
+  { label: "CARTEIRA", url: "/carteira", icon: wallet },
+  { label: "PERFIL", url: "/perfil", icon: profile },
 ];
