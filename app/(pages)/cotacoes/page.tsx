@@ -1,3 +1,5 @@
+"use client";
+
 import { twMerge } from "tailwind-merge";
 
 import Page from "@/app/components/ui/Page";
@@ -6,8 +8,17 @@ import Button from "@/app/components/ui/Button";
 import Typography from "@/app/components/ui/Typography";
 import Sidebar from "@/app/components/Sidebar";
 import { table } from "@/app/constants/table";
+import { useFetchCurrencies } from "@/app/hooks/useFetchCurrencies";
 
 const CotacoesPage = () => {
+  const {
+    data: assets,
+    // isLoading,
+    // error
+  } = useFetchCurrencies();
+
+  console.log("assets", assets);
+
   return (
     <Centered className="h-screen" items="start">
       <Sidebar />
@@ -15,6 +26,20 @@ const CotacoesPage = () => {
         title="Lista de Cotações"
         subtitle="Monitore preços, variações e dados do mercado com facilidade"
       >
+        <Centered justify="start" className="gap-x-2">
+          <Centered className="w-fit px-4 py-2 rounded-lg bg-blue-500">
+            <Typography className="text-lg text-white">Currencies</Typography>
+          </Centered>
+          <Centered className="w-fit px-4 py-2">
+            <Typography className="text-lg text-black/60">Stocks</Typography>
+          </Centered>
+          <Centered className="w-fit px-4 py-2">
+            <Typography className="text-lg text-black/60">Taxes</Typography>
+          </Centered>
+          <Centered className="w-fit px-4 py-2">
+            <Typography className="text-lg text-black/60">Bitcoin</Typography>
+          </Centered>
+        </Centered>
         <Centered direction="col" className="">
           {table.map((row, index) => (
             <Centered

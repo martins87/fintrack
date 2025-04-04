@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
+"use client";
+
+// import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import SessionProvider from "@/app/components/SessionProvider";
 import "./globals.css";
@@ -28,11 +31,13 @@ const neueMontreal = localFont({
   variable: "--font-neue-montreal",
 });
 
-export const metadata: Metadata = {
-  title: "FinTrack",
-  description:
-    "Seu rastreador inteligente de mercado financeiro, sempre atualizado.",
-};
+// export const metadata: Metadata = {
+//   title: "FinTrack",
+//   description:
+//     "Seu rastreador inteligente de mercado financeiro, sempre atualizado.",
+// };
+
+const queryClient = new QueryClient();
 
 export default function RootLayout({
   children,
@@ -44,7 +49,9 @@ export default function RootLayout({
       <body
         className={`${sora.variable} ${neueMontreal.variable} w-full min-h-screen antialiased`}
       >
-        <SessionProvider>{children}</SessionProvider>
+        <QueryClientProvider client={queryClient}>
+          <SessionProvider>{children}</SessionProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );

@@ -1,9 +1,12 @@
+import Centered from "./components/ui/Centered";
 import Typography from "./components/ui/Typography";
 
 export default function Home() {
   return (
     <main>
-      <Typography className="text-2xl">FinTrack</Typography>
+      <Centered className="h-screen">
+        <Typography className="text-2xl text-[#ededed]">FinTrack</Typography>
+      </Centered>
     </main>
   );
 }

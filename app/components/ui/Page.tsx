@@ -36,6 +36,7 @@ const Page: FC<PageProps> = ({ children, title, subtitle, className }) => {
         </Centered>
         <Centered
           className="h-full border border-[#E9ECEF] rounded-lg bg-white p-4"
+          direction="col"
           items="start"
           justify="start"
         >
