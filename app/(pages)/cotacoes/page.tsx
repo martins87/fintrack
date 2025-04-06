@@ -7,17 +7,19 @@ import Centered from "@/app/components/ui/Centered";
 import Button from "@/app/components/ui/Button";
 import Typography from "@/app/components/ui/Typography";
 import Sidebar from "@/app/components/Sidebar";
-import { table } from "@/app/constants/table";
 import { useFetchCurrencies } from "@/app/hooks/useFetchCurrencies";
+import { Currency } from "@/app/types/currency";
 
 const CotacoesPage = () => {
   const {
-    data: assets,
+    data,
     // isLoading,
     // error
   } = useFetchCurrencies();
 
-  console.log("assets", assets);
+  console.log("assets", data);
+  const currencies = (data?.currencies as Currency[]) || [];
+  console.log("currencies", currencies);
 
   return (
     <Centered className="h-screen" items="start">
@@ -26,7 +28,7 @@ const CotacoesPage = () => {
         title="Lista de Cotações"
         subtitle="Monitore preços, variações e dados do mercado com facilidade"
       >
-        <Centered justify="start" className="gap-x-2">
+        <Centered justify="start" className="gap-x-2 mb-4">
           <Centered className="w-fit px-4 py-2 rounded-lg bg-blue-500">
             <Typography className="text-lg text-white">Currencies</Typography>
           </Centered>
@@ -40,64 +42,61 @@ const CotacoesPage = () => {
             <Typography className="text-lg text-black/60">Bitcoin</Typography>
           </Centered>
         </Centered>
-        <Centered direction="col" className="">
-          {table.map((row, index) => (
+        <Centered direction="col" items="start" justify="start">
+          <Centered className="pl-4 py-2 gap-x-2">
+            <Centered className="" justify="start">
+              <Typography className="text-lg text-[#6C757D]" weight="500">
+                Name
+              </Typography>
+            </Centered>
+            <Centered className="" justify="start">
+              <Typography className="text-lg text-[#6C757D]" weight="500">
+                Buy
+              </Typography>
+            </Centered>
+            <Centered className="" justify="start">
+              <Typography className="text-lg text-[#6C757D]" weight="500">
+                Sell
+              </Typography>
+            </Centered>
+            <Centered className="" justify="start">
+              <Typography className="text-lg text-[#6C757D]" weight="500">
+                Variation
+              </Typography>
+            </Centered>
+            <Centered className="" justify="end">
+              <div />
+            </Centered>
+          </Centered>
+          {currencies.map((currency: Currency, index: number) => (
             <Centered
-              key={row.index}
+              key={index}
               className={twMerge(
-                "py-2 gap-x-2",
-                index % 2 ? "bg-[#E9ECEF]/50" : ""
+                "pl-4 py-1 gap-x-2",
+                index % 2 === 0 ? "bg-[#F8F9FA]" : ""
               )}
             >
-              <Centered className="w-28">
-                <Typography className="text-lg text-[#343A40]">
-                  {row.index}
-                </Typography>
-              </Centered>
-              <Centered className="w-[20%]" justify="start">
-                <Typography className="text-lg text-[#343A40]">
-                  {row.nome}
-                </Typography>
-              </Centered>
-              <Centered className="w-[15%] " justify="start">
-                <Typography className="text-lg text-[#343A40]">
-                  {row.preco}
-                </Typography>
-              </Centered>
-              <Centered className="w-[15%]" justify="start">
-                <Typography
-                  className={twMerge(
-                    "text-lg",
-                    typeof row.variacao24h === "string"
-                      ? "text-[#343A40]"
-                      : row.variacao24h < 1
-                      ? "text-red-500"
-                      : "text-green-700"
-                  )}
-                >
-                  {row.variacao24h}
-                </Typography>
-              </Centered>
-              <Centered className="w-[15%]" justify="start">
-                <Typography
-                  className={twMerge(
-                    "text-lg",
-                    typeof row.variacao7d === "string"
-                      ? "text-[#343A40]"
-                      : +row.variacao7d >= 0
-                      ? "text-green-700"
-                      : "text-red-500"
-                  )}
-                >
-                  {row.variacao7d}
+              <Centered className="" justify="start">
+                <Typography className="text-lg text-[#343A40]" weight="500">
+                  {currency.name}
                 </Typography>
               </Centered>
               <Centered className="" justify="start">
                 <Typography className="text-lg text-[#343A40]">
-                  {row.variacaoSemanal}
+                  R$ {currency.buy}
                 </Typography>
               </Centered>
-              <Centered className="w-fit" justify="end">
+              <Centered className="" justify="start">
+                <Typography className="text-lg text-[#343A40]">
+                  {currency && currency.sell ? `R$ ${currency.sell}` : "-"}
+                </Typography>
+              </Centered>
+              <Centered className="" justify="start">
+                <Typography className={twMerge("text-lg", "text-[#343A40]")}>
+                  {currency.variation}
+                </Typography>
+              </Centered>
+              <Centered className="" justify="end">
                 <Button className="min-w-36" label="Detalhes" primary />
               </Centered>
             </Centered>
