@@ -16,14 +16,14 @@ const AssetTab: FC<AssetTabProps> = ({ label, active, tab, setTab }) => {
     <Centered
       className={twMerge(
         "w-fit px-4 py-2 rounded-lg hover:cursor-pointer transition-colors ease-in-out duration-200",
-        active === tab ? "bg-[#007BFF]" : "bg-inherit"
+        active === tab ? "bg-main-purple" : "bg-inherit hover:bg-main-purple/10"
       )}
       onClick={() => setTab(tab)}
     >
       <Typography
         className={twMerge(
           "text-lg",
-          active === tab ? "text-white" : "text-black/60"
+          active === tab ? "text-white" : "text-main-purple"
         )}
       >
         {label}

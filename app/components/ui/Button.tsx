@@ -32,9 +32,9 @@ const Button: FC<ButtonProps> = ({
       className={twMerge(
         "w-full group flex items-center justify-center gap-x-3 py-4 rounded-lg transition-colors ease-in-out duration-200 hover:cursor-pointer",
         primary
-          ? "bg-[#0057FC] hover:bg-[#0057FC]/90 border-0"
+          ? "bg-main-purple hover:bg-main-purple/80 border-0"
           : secondary
-          ? "bg-[inherit] border border-[#0057FC] hover:bg-[#0057FC]/10"
+          ? "bg-[inherit] border border-main-purple hover:bg-[#0057FC]/10"
           : "",
         disabled && "bg-[#E9ECEF] hover:bg-[#E9ECEF] hover:cursor-not-allowed",
         full && "w-full",
@@ -46,7 +46,7 @@ const Button: FC<ButtonProps> = ({
       <Typography
         className={twMerge(
           "text-xl tracking-wider",
-          primary ? "text-white" : secondary ? "text-[#0057FC]" : "",
+          primary ? "text-white" : secondary ? "text-main-purple" : "",
           disabled && "text-[#ADB5BD]"
         )}
       >

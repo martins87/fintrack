@@ -15,7 +15,7 @@ import AssetTab from "@/app/components/AssetTab";
 const CotacoesPage = () => {
   const {
     data,
-    // isLoading,
+    isLoading,
     // error
   } = useFetchCurrencies();
   const [tab, setTab] = useState<number>(0);
@@ -34,15 +34,20 @@ const CotacoesPage = () => {
         <Centered justify="start" className="gap-x-2 mb-4">
           <AssetTab label="Currencies" active={tab} tab={0} setTab={setTab} />
           <AssetTab label="Stocks" active={tab} tab={1} setTab={setTab} />
-          <Centered className="w-fit px-4 py-2">
-            <Typography className="text-lg text-black/60">Taxes</Typography>
-          </Centered>
-          <Centered className="w-fit px-4 py-2">
-            <Typography className="text-lg text-black/60">Bitcoin</Typography>
-          </Centered>
+          <AssetTab label="Taxes" active={tab} tab={2} setTab={setTab} />
+          <AssetTab label="Bitcoin" active={tab} tab={3} setTab={setTab} />
         </Centered>
-        {tab === 0 && <CurrencyTable currencies={currencies} />}
-        {tab === 1 && <StocksTable stocks={stocks} />}
+        {isLoading ? (
+          <Centered className="h-full my-20" items="center" justify="center">
+            <Typography className="text-lg text-black/60">
+              Loading data...
+            </Typography>
+          </Centered>
+        ) : tab === 0 ? (
+          <CurrencyTable currencies={currencies} />
+        ) : tab === 1 ? (
+          <StocksTable stocks={stocks} />
+        ) : null}
       </Page>
     </Centered>
   );

@@ -73,7 +73,7 @@ const CurrencyTable: FC<CurrencyTableProps> = ({ currencies }) => {
             </Typography>
           </Centered>
           <Centered className="" justify="end">
-            <Button className="min-w-36" label="Detalhes" primary />
+            <Button className="py-3" label="Detalhes" primary />
           </Centered>
         </Centered>
       ))}
