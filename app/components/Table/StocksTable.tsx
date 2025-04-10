@@ -1,16 +1,21 @@
+import { FC } from "react";
+import { useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 
 import Centered from "../ui/Centered";
 import Typography from "../ui/Typography";
-import { FC } from "react";
 import Button from "../ui/Button";
-import { Stock } from "@/app/types/stock";
+import { Stock } from "@/app/types/assets";
 
 type StocksTableProps = {
   stocks: Stock[];
 };
 
 const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
+  const router = useRouter();
+
+  const handleClick = (id: string) => router.push(`/ativo/${id}`);
+
   return (
     <Centered direction="col" items="start" justify="start">
       <Centered className="pl-4 py-2 gap-x-2">
@@ -47,7 +52,10 @@ const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
           )}
         >
           <Centered className="" justify="start">
-            <Typography className="text-lg text-[#343A40]" weight="500">
+            <Typography
+              className="text-lg text-[#343A40] leading-5"
+              weight="500"
+            >
               {stock.name}
             </Typography>
           </Centered>
@@ -73,7 +81,12 @@ const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
             </Typography>
           </Centered>
           <Centered className="" justify="end">
-            <Button className="py-3" label="Detalhes" primary />
+            <Button
+              className="py-3"
+              label="Detalhes"
+              primary
+              onClick={() => handleClick(stock.id)}
+            />
           </Centered>
         </Centered>
       ))}

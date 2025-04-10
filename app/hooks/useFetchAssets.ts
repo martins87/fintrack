@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCurrencies } from "../services/currencyService";
+import { getAssets } from "../services/assets";
 
-export const useFetchCurrencies = () => {
+export const useFetchAssets = () => {
   return useQuery({
     queryKey: ["currencies"],
-    queryFn: getCurrencies,
+    queryFn: getAssets,
     staleTime: 60000,
   });
 };

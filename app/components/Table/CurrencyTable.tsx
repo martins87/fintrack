@@ -1,9 +1,10 @@
+import { FC } from "react";
+import { useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
 
-import { Currency } from "@/app/types/currency";
+import { Currency } from "@/app/types/assets";
 import Centered from "../ui/Centered";
 import Typography from "../ui/Typography";
-import { FC } from "react";
 import Button from "../ui/Button";
 
 type CurrencyTableProps = {
@@ -11,6 +12,10 @@ type CurrencyTableProps = {
 };
 
 const CurrencyTable: FC<CurrencyTableProps> = ({ currencies }) => {
+  const router = useRouter();
+
+  const handleClick = (id: string) => router.push(`/ativo/${id}`);
+
   return (
     <Centered direction="col" items="start" justify="start">
       <Centered className="pl-4 py-2 gap-x-2">
@@ -73,7 +78,12 @@ const CurrencyTable: FC<CurrencyTableProps> = ({ currencies }) => {
             </Typography>
           </Centered>
           <Centered className="" justify="end">
-            <Button className="py-3" label="Detalhes" primary />
+            <Button
+              className="py-3"
+              label="Detalhes"
+              primary
+              onClick={() => handleClick(currency.id)}
+            />
           </Centered>
         </Centered>
       ))}
