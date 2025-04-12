@@ -14,29 +14,29 @@ type CurrencyTableProps = {
 const CurrencyTable: FC<CurrencyTableProps> = ({ currencies }) => {
   const router = useRouter();
 
-  const handleClick = (id: string) => router.push(`/ativo/${id}`);
+  const handleClick = (id: string) => router.push(`/moeda/${id}`);
 
   return (
     <Centered direction="col" items="start" justify="start">
       <Centered className="pl-4 py-2 gap-x-2">
         <Centered className="" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
-            Name
+            Nome
           </Typography>
         </Centered>
         <Centered className="" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
-            Buy
+            Compra
           </Typography>
         </Centered>
         <Centered className="" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
-            Sell
+            Venda
           </Typography>
         </Centered>
         <Centered className="" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
-            Variation
+            Variação
           </Typography>
         </Centered>
         <Centered className="" justify="end">
@@ -70,18 +70,18 @@ const CurrencyTable: FC<CurrencyTableProps> = ({ currencies }) => {
             <Typography
               className={twMerge(
                 "text-lg",
-                currency.variation > 0 ? "text-green-700" : "text-red-500"
+                currency.variation > 0 ? "text-green-600" : "text-red-500"
               )}
               weight="500"
             >
               {currency.variation} %
             </Typography>
           </Centered>
-          <Centered className="" justify="end">
+          <Centered justify="end">
             <Button
-              className="py-3"
+              className="py-3 px-10 w-fit"
               label="Detalhes"
-              primary
+              secondary
               onClick={() => handleClick(currency.id)}
             />
           </Centered>

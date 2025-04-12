@@ -6,7 +6,7 @@ import Typography from "./Typography";
 
 type PageProps = {
   children: ReactNode;
-  title: string;
+  title: string | ReactNode;
   subtitle?: string;
   className?: string;
 };
@@ -25,9 +25,13 @@ const Page: FC<PageProps> = ({ children, title, subtitle, className }) => {
           items="start"
           justify="between"
         >
-          <Typography className="text-5xl" weight="500">
-            {title}
-          </Typography>
+          {typeof title === "string" ? (
+            <Typography className="text-5xl" weight="500">
+              {title}
+            </Typography>
+          ) : (
+            title
+          )}
           {subtitle && (
             <Typography className="text-xl text-black/65" weight="400">
               {subtitle}

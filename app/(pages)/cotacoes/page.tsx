@@ -37,9 +37,9 @@ const CotacoesPage = () => {
         subtitle="Monitore preços, variações e dados do mercado com facilidade"
       >
         <Centered justify="start" className="gap-x-2 mb-4">
-          <AssetTab label="Currencies" active={tab} tab={0} setTab={setTab} />
-          <AssetTab label="Stocks" active={tab} tab={1} setTab={setTab} />
-          <AssetTab label="Taxes" active={tab} tab={2} setTab={setTab} />
+          <AssetTab label="Moedas" active={tab} tab={0} setTab={setTab} />
+          <AssetTab label="Ações" active={tab} tab={1} setTab={setTab} />
+          <AssetTab label="Taxas" active={tab} tab={2} setTab={setTab} />
           <AssetTab label="Bitcoin" active={tab} tab={3} setTab={setTab} />
         </Centered>
         {isLoading ? (

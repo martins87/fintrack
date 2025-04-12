@@ -14,7 +14,7 @@ type StocksTableProps = {
 const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
   const router = useRouter();
 
-  const handleClick = (id: string) => router.push(`/ativo/${id}`);
+  const handleClick = (id: string) => router.push(`/acao/${id}`);
 
   return (
     <Centered direction="col" items="start" justify="start">
@@ -82,9 +82,9 @@ const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
           </Centered>
           <Centered className="" justify="end">
             <Button
-              className="py-3"
+              className="py-3 px-10 w-fit"
               label="Detalhes"
-              primary
+              secondary
               onClick={() => handleClick(stock.id)}
             />
           </Centered>
