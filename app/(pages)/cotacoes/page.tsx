@@ -50,8 +50,8 @@ const CotacoesPage = () => {
           <AssetTab label="Ações" active={tab} tab={2} setTab={setTab} />
           <AssetTab label="FIIs" active={tab} tab={3} setTab={setTab} />
           <AssetTab label="BDRs" active={tab} tab={4} setTab={setTab} />
-          <AssetTab label="Taxas" active={tab} tab={5} setTab={setTab} />
-          <AssetTab label="Bitcoin" active={tab} tab={6} setTab={setTab} />
+          {/* <AssetTab label="Taxas" active={tab} tab={5} setTab={setTab} />
+          <AssetTab label="Bitcoin" active={tab} tab={6} setTab={setTab} /> */}
         </Centered>
         {isAssetsLoading ? (
           <Centered className="h-full my-20" items="center" justify="center">
