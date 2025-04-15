@@ -11,10 +11,8 @@ import { sidebarLinks } from "@/app/constants/sidebarLinks";
 
 const Sidebar = () => {
   const router = useRouter();
-  const handleLogout = () => {
-    localStorage.removeItem("userdata");
-    router.push("/login");
-  };
+
+  const handleLogout = () => router.push("/login");
 
   return (
     <Centered

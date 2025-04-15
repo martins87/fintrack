@@ -23,6 +23,9 @@ const LoginPage = () => {
   const [senhaConfirmacao, setSenhaConfirmacao] = useState<string>("");
 
   const handleConcluirCadastro = () => {
+    const users = localStorage.getItem("userdata");
+    const parsedUsers = users ? JSON.parse(users) : [];
+
     const userData = {
       nome,
       cpf,
@@ -34,7 +37,8 @@ const LoginPage = () => {
       timestamp: Date.now(),
     };
 
-    localStorage.setItem("userdata", JSON.stringify(userData));
+    parsedUsers.push(userData);
+    localStorage.setItem("userdata", JSON.stringify(parsedUsers));
 
     router.push("/cotacoes");
   };

@@ -11,10 +11,46 @@ import Input from "@/app/components/ui/Input";
 import Button from "@/app/components/ui/Button";
 import Logo from "@/app/components/Logo";
 import trading from "@/app/assets/images/photo-1579226905180-636b76d96082.png";
+import { useRouter } from "next/navigation";
+import { User } from "@/app/types/user";
 
 const LoginPage = () => {
+  const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
+  const [errorMsg, setErrorMsg] = useState<string>("");
+
+  const handleLogin = () => {
+    if (email === "" || senha === "") {
+      setErrorMsg("Favor preencher todos os campos");
+      return;
+    }
+
+    const users = localStorage.getItem("userdata");
+    // No users registered yet
+    if (!users) {
+      setErrorMsg("Usuário não encontrado");
+      return;
+    }
+
+    const parsedUsers = JSON.parse(users);
+    // User not found
+    const userFound = parsedUsers.find((user: User) => user.email === email);
+    if (!userFound) {
+      setErrorMsg("Usuário não encontrado");
+      return;
+    }
+
+    const storedEmail = userFound.email;
+    const storedSenha = userFound.senha;
+    if (email !== storedEmail || senha !== storedSenha) {
+      setErrorMsg("Email ou senha incorretos");
+      return;
+    }
+
+    setErrorMsg("");
+    router.push("/cotacoes");
+  };
 
   return (
     <Container className="min-h-screen">
@@ -39,7 +75,10 @@ const LoginPage = () => {
             setValue={setSenha}
             password
           />
-          <Button label="Login" primary />
+          <Button label="Login" primary onClick={handleLogin} />
+          {errorMsg && (
+            <Typography className="text-lg text-red-500">{errorMsg}</Typography>
+          )}
           <Centered justify="start" className="gap-x-1.5">
             <Typography className="text-xl text-black/75">
               Ainda não tem uma conta?
