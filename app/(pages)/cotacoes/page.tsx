@@ -14,7 +14,7 @@ import AssetTab from "@/app/components/AssetTab";
 import StockTable from "@/app/components/Table/StockTable";
 import { useAssetsStore } from "@/app/store/useAssetsStore";
 // import { useFetchStocks } from "@/app/hooks/useFetchStocks";
-import { mainStocks } from "@/app/constants/mainStocks";
+import { mainBdrs, mainFiis, mainStocks } from "@/app/constants/mainAssets";
 
 const CotacoesPage = () => {
   const {
@@ -64,8 +64,11 @@ const CotacoesPage = () => {
         ) : tab === 1 ? (
           <CurrencyTable currencies={currencies} />
         ) : tab === 2 ? (
-          // <StockTable stocks={stocks} />
           <StockTable stocks={mainStocks} />
+        ) : tab === 3 ? (
+          <StockTable stocks={mainFiis} />
+        ) : tab === 4 ? (
+          <StockTable stocks={mainBdrs} />
         ) : null}
       </Page>
     </Centered>

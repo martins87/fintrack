@@ -16,7 +16,6 @@ const StockPage = () => {
     isLoading,
     // isError
   } = useFetchStock(ticker);
-  console.log("stock data", data);
 
   return (
     <Centered className="h-screen" items="start">
