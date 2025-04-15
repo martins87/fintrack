@@ -3,7 +3,7 @@ import { getAssets } from "../services/assets";
 
 export const useFetchAssets = () => {
   return useQuery({
-    queryKey: ["currencies"],
+    queryKey: ["assets"],
     queryFn: getAssets,
     staleTime: 60000,
   });

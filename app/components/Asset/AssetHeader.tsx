@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import Centered from "../ui/Centered";
 import Typography from "../ui/Typography";
-import { Currency, Stock } from "@/app/types/assets";
+import { Currency, Index } from "@/app/types/assets";
 
 type AssetHeaderProps = {
-  asset: Currency | Stock;
+  asset: Currency | Index;
 };
 
 const AssetHeader: FC<AssetHeaderProps> = ({ asset }) => {

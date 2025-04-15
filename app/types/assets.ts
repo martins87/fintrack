@@ -8,7 +8,7 @@ export type Currency = {
   variation: number;
 };
 
-export type Stock = {
+export type Index = {
   id: string;
   name: string;
   location: string;
@@ -37,7 +37,7 @@ export type Tax = {
 
 export type Assets = {
   currencies: Currency[];
-  stocks: Stock[];
+  stocks: Index[];
   bitcoin: BitcoinMarket[];
   taxes: Tax[];
 };

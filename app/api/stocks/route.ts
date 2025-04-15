@@ -13,7 +13,7 @@ export async function GET() {
 
   try {
     const response = await fetch(
-      `${API_BASE_URL}?key=${API_KEY}&fields=only_results`
+      `${API_BASE_URL}/ticker_list?only=stocks&key=${API_KEY}&fields=only_results`
     );
     if (!response.ok) throw new Error("Failed to fetch data");
     const data = await response.json();

@@ -87,7 +87,12 @@ const LoginPage = () => {
             primary
             onClick={handleConcluirCadastro}
           />
-          <Button label="Voltar" secondary onClick={handleVoltar} />
+          <Button
+            className="bg-inherit"
+            label="Voltar"
+            secondary
+            onClick={handleVoltar}
+          />
         </Centered>
         <Centered
           className="hidden md:flex md:w-1/2"

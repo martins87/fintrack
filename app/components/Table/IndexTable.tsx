@@ -5,16 +5,16 @@ import { twMerge } from "tailwind-merge";
 import Centered from "../ui/Centered";
 import Typography from "../ui/Typography";
 import Button from "../ui/Button";
-import { Stock } from "@/app/types/assets";
+import { Index } from "@/app/types/assets";
 
-type StocksTableProps = {
-  stocks: Stock[];
+type IndexTableProps = {
+  indexes: Index[];
 };
 
-const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
+const IndexTable: FC<IndexTableProps> = ({ indexes }) => {
   const router = useRouter();
 
-  const handleClick = (id: string) => router.push(`/acao/${id}`);
+  const handleClick = (id: string) => router.push(`/indice/${id}`);
 
   return (
     <Centered direction="col" items="start" justify="start">
@@ -43,12 +43,12 @@ const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
           <div />
         </Centered>
       </Centered>
-      {stocks.map((stock: Stock, index: number) => (
+      {indexes.map((index: Index, i: number) => (
         <Centered
-          key={index}
+          key={i}
           className={twMerge(
             "pl-4 py-1 gap-x-2",
-            index % 2 === 0 ? "bg-[#F8F9FA]" : ""
+            i % 2 === 0 ? "bg-[#F8F9FA]" : ""
           )}
         >
           <Centered className="" justify="start">
@@ -56,28 +56,28 @@ const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
               className="text-lg text-[#343A40] leading-5"
               weight="500"
             >
-              {stock.name}
+              {index.name}
             </Typography>
           </Centered>
           <Centered className="" justify="start">
             <Typography className="text-lg text-[#343A40]">
-              {stock.location}
+              {index.location}
             </Typography>
           </Centered>
           <Centered className="" justify="start">
             <Typography className="text-lg text-[#343A40]">
-              {stock.points}
+              {index.points}
             </Typography>
           </Centered>
           <Centered className="" justify="start">
             <Typography
               className={twMerge(
                 "text-lg",
-                stock.variation > 0 ? "text-green-700" : "text-red-500"
+                index.variation > 0 ? "text-green-700" : "text-red-500"
               )}
               weight="500"
             >
-              {stock.variation} %
+              {index.variation} %
             </Typography>
           </Centered>
           <Centered className="" justify="end">
@@ -85,7 +85,7 @@ const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
               className="py-3 px-10 w-fit"
               label="Detalhes"
               secondary
-              onClick={() => handleClick(stock.id)}
+              onClick={() => handleClick(index.id)}
             />
           </Centered>
         </Centered>
@@ -94,4 +94,4 @@ const StocksTable: FC<StocksTableProps> = ({ stocks }) => {
   );
 };
 
-export default StocksTable;
+export default IndexTable;
