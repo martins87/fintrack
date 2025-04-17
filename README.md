@@ -8,7 +8,7 @@ Acesse o projeto online: [https://franq-fintrack.vercel.app](https://franq-fintr
 
 - Tela de login e cadastro de usuário com persistência em **localStorage**
 - Validação de sessão com expiração após **30 minutos**
-- Exibição de **cotações atualizadas** de 10 ativos financeiros
+- Exibição de **cotações atualizadas** de ativos financeiros
 - Diferenciação de **variação positiva (verde)** e **negativa (vermelho)**
 - Visualização de **gráfico de evolução dos preços** de um ativo
 - Layout **responsivo** para diferentes tamanhos de tela
