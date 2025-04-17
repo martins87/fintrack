@@ -22,8 +22,27 @@ const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
   const [senhaConfirmacao, setSenhaConfirmacao] = useState<string>("");
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   const handleConcluirCadastro = () => {
+    if (
+      !nome ||
+      !cpf ||
+      !dataNascimento ||
+      !telefone ||
+      !email ||
+      !senha ||
+      !senhaConfirmacao
+    ) {
+      setErrorMsg("Por favor, preencha todos os campos obrigatórios.");
+      return;
+    }
+
+    if (senha !== senhaConfirmacao) {
+      setErrorMsg("As senhas não coincidem.");
+      return;
+    }
+
     const users = localStorage.getItem("userdata");
     let parsedUsers: User[] = [];
 
@@ -35,6 +54,12 @@ const LoginPage = () => {
     } catch (error) {
       parsedUsers = [];
       console.log(error);
+    }
+
+    const emailExistente = parsedUsers.some((user) => user.email === email);
+    if (emailExistente) {
+      setErrorMsg("Já existe um usuário cadastrado com este e-mail.");
+      return;
     }
 
     const userData = {
@@ -84,19 +109,22 @@ const LoginPage = () => {
             value={telefone}
             setValue={setTelefone}
           />
-          <Input placeholder="Email" value={email} setValue={setEmail} />
+          <Input placeholder="Email*" value={email} setValue={setEmail} />
           <Input
-            placeholder="Senha"
+            placeholder="Senha*"
             value={senha}
             setValue={setSenha}
             password
           />
           <Input
-            placeholder="Confirmar Senha"
+            placeholder="Confirmar Senha*"
             value={senhaConfirmacao}
             setValue={setSenhaConfirmacao}
             password
           />
+          {errorMsg && (
+            <Typography className="text-lg text-red-500">{errorMsg}</Typography>
+          )}
           <Button
             label="Concluir cadastro"
             primary
