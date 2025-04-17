@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+import { User } from "@/app/types/user";
 import Container from "@/app/components/ui/Container";
 import Typography from "@/app/components/ui/Typography";
 import Centered from "@/app/components/ui/Centered";
@@ -24,7 +25,17 @@ const LoginPage = () => {
 
   const handleConcluirCadastro = () => {
     const users = localStorage.getItem("userdata");
-    const parsedUsers = users ? JSON.parse(users) : [];
+    let parsedUsers: User[] = [];
+
+    try {
+      parsedUsers = users ? JSON.parse(users) : [];
+      if (!Array.isArray(parsedUsers)) {
+        parsedUsers = [];
+      }
+    } catch (error) {
+      parsedUsers = [];
+      console.log(error);
+    }
 
     const userData = {
       nome,
