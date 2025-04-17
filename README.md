@@ -13,9 +13,7 @@ Acesse o projeto online: [https://franq-fintrack.vercel.app](https://franq-fintr
 - Visualização de **gráfico de evolução dos preços** de um ativo
 - Layout **responsivo** para diferentes tamanhos de tela
 - Consumo da [API de finanças da HG Brasil](https://hgbrasil.com/status/finance/)
-- Dados persistidos localmente por usuário
 - Navegação protegida por autenticação
-- Aplicação hospedada na Vercel
 
 ## Tecnologias utilizadas
 
