@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { Currency, Index } from "@/app/types/assets";
 import { useFetchAssets } from "@/app/hooks/useFetchAssets";
+import { useAssetsStore } from "@/app/store/useAssetsStore";
 import Page from "@/app/components/ui/Page";
 import Centered from "@/app/components/ui/Centered";
 import Typography from "@/app/components/ui/Typography";
@@ -12,8 +13,6 @@ import CurrencyTable from "@/app/components/Table/CurrencyTable";
 import IndexTable from "@/app/components/Table/IndexTable";
 import AssetTab from "@/app/components/AssetTab";
 import StockTable from "@/app/components/Table/StockTable";
-import { useAssetsStore } from "@/app/store/useAssetsStore";
-// import { useFetchStocks } from "@/app/hooks/useFetchStocks";
 import { mainBdrs, mainFiis, mainStocks } from "@/app/constants/mainAssets";
 
 const CotacoesPage = () => {
@@ -22,13 +21,8 @@ const CotacoesPage = () => {
     isLoading: isAssetsLoading,
     // error
   } = useFetchAssets();
-  // const {
-  //   data: stocks,
-  //   isLoading: isStocksLoading,
-  //   // error
-  // } = useFetchStocks();
-  const [tab, setTab] = useState<number>(0);
   const { setAssets } = useAssetsStore();
+  const [tab, setTab] = useState<number>(0);
 
   useEffect(() => {
     if (assets) setAssets(assets);

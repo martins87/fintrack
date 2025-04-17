@@ -54,13 +54,6 @@ export const getStocks = async () => {
   // TODO threat errors
   const data = await response.json();
 
-  // const assets = {
-  //   currencies,
-  //   indexes,
-  //   bitcoin,
-  //   taxes,
-  // };
-
   return data.results;
 };
 
