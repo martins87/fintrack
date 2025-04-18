@@ -33,7 +33,7 @@ const CurrencyPage = () => {
     <Centered className="h-screen" items="start">
       <Sidebar />
       <Page title={<AssetHeader asset={currency} />}>
-        <Centered className="gap-2">
+        <Centered className="gap-2 flex-col md:flex-row">
           <AssetCard
             label="Compra"
             value={
