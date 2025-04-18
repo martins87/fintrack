@@ -53,32 +53,36 @@ const LoginPage = () => {
   };
 
   return (
-    <Container className="min-h-screen">
-      <Centered className="gap-x-20">
+    <Container className="min-h-screen justify-start md:justify-center mt-20 md:mt-0">
+      <Centered className="gap-x-20" items="start">
         <Centered
           direction="col"
-          className="w-full h-full md:w-1/2 gap-y-2 mb-auto"
+          className="w-full h-full md:w-1/2 gap-y-6"
           items="start"
           justify="start"
         >
           <Logo />
-          <Typography className="text-4xl" font="sora">
+          <Typography className="text-4xl mt-10" font="sora">
             Login
           </Typography>
-          <Typography className="text-xl text-black/75">
+          <Typography className="text-xl text-black/55">
             Faça Login para acessar sua conta
           </Typography>
-          <Input placeholder="Email" value={email} setValue={setEmail} />
-          <Input
-            placeholder="Senha"
-            value={senha}
-            setValue={setSenha}
-            password
-          />
-          <Button label="Login" primary onClick={handleLogin} />
-          {errorMsg && (
-            <Typography className="text-lg text-red-500">{errorMsg}</Typography>
-          )}
+          <Centered direction="col" className="gap-y-2">
+            <Input placeholder="Email" value={email} setValue={setEmail} />
+            <Input
+              placeholder="Senha"
+              value={senha}
+              setValue={setSenha}
+              password
+            />
+            <Button label="Login" primary onClick={handleLogin} />
+            {errorMsg && (
+              <Typography className="text-lg text-red-500">
+                {errorMsg}
+              </Typography>
+            )}
+          </Centered>
           <Centered justify="start" className="gap-x-1.5">
             <Typography className="text-xl text-black/75">
               Ainda não tem uma conta?

@@ -82,60 +82,68 @@ const LoginPage = () => {
   const handleVoltar = () => router.push("/login");
 
   return (
-    <Container className="min-h-screen">
+    <Container className="min-h-screen justify-start md:justify-center mt-20 md:mt-0">
       <Centered className="gap-x-20">
         <Centered
           direction="col"
-          className="w-full h-full md:w-1/2 gap-y-2 mb-auto"
+          className="w-full h-full md:w-1/2 gap-y-6 mb-auto"
           items="start"
           justify="start"
         >
           <Image src={franqLogo} alt="" />
-          <Typography className="text-4xl" font="sora">
+          <Typography className="text-4xl mt-10" font="sora">
             Cadastro
           </Typography>
-          <Typography className="text-xl text-black/75">
+          <Typography className="text-xl text-black/55">
             Cadastre-se para acessar a plataforma
           </Typography>
-          <Input placeholder="Nome Completo*" value={nome} setValue={setNome} />
-          <Input placeholder="CPF*" value={cpf} setValue={setCpf} />
-          <Input
-            placeholder="Data de Nascimento*"
-            value={dataNascimento}
-            setValue={setDataNascimento}
-          />
-          <Input
-            placeholder="Telefone*"
-            value={telefone}
-            setValue={setTelefone}
-          />
-          <Input placeholder="Email*" value={email} setValue={setEmail} />
-          <Input
-            placeholder="Senha*"
-            value={senha}
-            setValue={setSenha}
-            password
-          />
-          <Input
-            placeholder="Confirmar Senha*"
-            value={senhaConfirmacao}
-            setValue={setSenhaConfirmacao}
-            password
-          />
-          {errorMsg && (
-            <Typography className="text-lg text-red-500">{errorMsg}</Typography>
-          )}
-          <Button
-            label="Concluir cadastro"
-            primary
-            onClick={handleConcluirCadastro}
-          />
-          <Button
-            className="bg-inherit"
-            label="Voltar"
-            secondary
-            onClick={handleVoltar}
-          />
+          <Centered direction="col" className="gap-y-2">
+            <Input
+              placeholder="Nome Completo*"
+              value={nome}
+              setValue={setNome}
+            />
+            <Input placeholder="CPF*" value={cpf} setValue={setCpf} />
+            <Input
+              placeholder="Data de Nascimento*"
+              value={dataNascimento}
+              setValue={setDataNascimento}
+            />
+            <Input
+              placeholder="Telefone*"
+              value={telefone}
+              setValue={setTelefone}
+            />
+            <Input placeholder="Email*" value={email} setValue={setEmail} />
+            <Input
+              placeholder="Senha*"
+              value={senha}
+              setValue={setSenha}
+              password
+            />
+            <Input
+              placeholder="Confirmar Senha*"
+              value={senhaConfirmacao}
+              setValue={setSenhaConfirmacao}
+              password
+            />
+            {errorMsg && (
+              <Typography className="text-lg text-red-500">
+                {errorMsg}
+              </Typography>
+            )}
+            <Button
+              label="Concluir cadastro"
+              primary
+              onClick={handleConcluirCadastro}
+            />
+            <Button
+              className="bg-inherit"
+              label="Voltar"
+              secondary
+              onClick={handleVoltar}
+            />
+          </Centered>
         </Centered>
         <Centered
           className="hidden md:flex md:w-1/2"
