@@ -24,17 +24,17 @@ const CurrencyTable: FC<CurrencyTableProps> = ({ currencies }) => {
             Nome
           </Typography>
         </Centered>
-        <Centered className="" justify="start">
+        <Centered className="hidden md:flex" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
             Compra
           </Typography>
         </Centered>
-        <Centered className="" justify="start">
+        <Centered className="hidden md:flex" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
             Venda
           </Typography>
         </Centered>
-        <Centered className="" justify="start">
+        <Centered className="hidden md:flex" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
             Variação
           </Typography>
@@ -56,17 +56,17 @@ const CurrencyTable: FC<CurrencyTableProps> = ({ currencies }) => {
               {currency.name}
             </Typography>
           </Centered>
-          <Centered className="" justify="start">
+          <Centered className="hidden md:flex" justify="start">
             <Typography className="text-lg text-[#343A40]">
               R$ {currency.buy}
             </Typography>
           </Centered>
-          <Centered className="" justify="start">
+          <Centered className="hidden md:flex" justify="start">
             <Typography className="text-lg text-[#343A40]">
               {currency && currency.sell ? `R$ ${currency.sell}` : "-"}
             </Typography>
           </Centered>
-          <Centered className="" justify="start">
+          <Centered className="hidden md:flex" justify="start">
             <Typography
               className={twMerge(
                 "text-lg",

@@ -16,7 +16,7 @@ const Sidebar = () => {
 
   return (
     <Centered
-      className="w-64 min-h-screen bg-[#1C1D21] p-10 gap-y-5"
+      className="hidden md:flex w-64 min-h-screen bg-[#1C1D21] p-10 gap-y-5"
       direction="col"
       items="start"
       justify="start"

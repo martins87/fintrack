@@ -21,22 +21,22 @@ const IndexTable: FC<IndexTableProps> = ({ indexes }) => {
       <Centered className="pl-4 py-2 gap-x-2">
         <Centered className="" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
-            Name
+            Nome
           </Typography>
         </Centered>
-        <Centered className="" justify="start">
+        <Centered className="hidden md:flex" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
-            Location
+            Local
           </Typography>
         </Centered>
-        <Centered className="" justify="start">
+        <Centered className="hidden md:flex" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
-            Points
+            Pontos
           </Typography>
         </Centered>
-        <Centered className="" justify="start">
+        <Centered className="hidden md:flex" justify="start">
           <Typography className="text-lg text-[#6C757D]" weight="500">
-            Variation
+            Variação
           </Typography>
         </Centered>
         <Centered className="" justify="end">
@@ -59,17 +59,17 @@ const IndexTable: FC<IndexTableProps> = ({ indexes }) => {
               {index.name}
             </Typography>
           </Centered>
-          <Centered className="" justify="start">
+          <Centered className="hidden md:flex" justify="start">
             <Typography className="text-lg text-[#343A40]">
               {index.location}
             </Typography>
           </Centered>
-          <Centered className="" justify="start">
+          <Centered className="hidden md:flex" justify="start">
             <Typography className="text-lg text-[#343A40]">
               {index.points}
             </Typography>
           </Centered>
-          <Centered className="" justify="start">
+          <Centered className="hidden md:flex" justify="start">
             <Typography
               className={twMerge(
                 "text-lg",
