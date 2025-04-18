@@ -38,7 +38,7 @@ const CotacoesPage = () => {
         title="Lista de Cotações"
         subtitle="Monitore preços, variações e dados do mercado com facilidade"
       >
-        <Centered justify="start" className="gap-x-2 mb-4">
+        <Centered justify="start" className="gap-x-1 mb-4">
           <AssetTab label="Índices" active={tab} tab={0} setTab={setTab} />
           <AssetTab label="Moedas" active={tab} tab={1} setTab={setTab} />
           <AssetTab label="Ações" active={tab} tab={2} setTab={setTab} />
