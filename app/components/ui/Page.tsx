@@ -20,20 +20,23 @@ const Page: FC<PageProps> = ({ children, title, subtitle, className }) => {
         justify="start"
       >
         <Centered
-          className="gap-y-4 mb-10"
+          className="gap-y-2 md:gap-y-4 mb-10"
           direction="col"
           items="start"
           justify="between"
         >
           {typeof title === "string" ? (
-            <Typography className="text-5xl" weight="500">
+            <Typography className="text-3xl md:text-5xl" weight="500">
               {title}
             </Typography>
           ) : (
             title
           )}
           {subtitle && (
-            <Typography className="text-xl text-black/65" weight="400">
+            <Typography
+              className="text-lg md:text-xl text-black/65"
+              weight="400"
+            >
               {subtitle}
             </Typography>
           )}

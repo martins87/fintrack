@@ -34,7 +34,7 @@ const StockPage = () => {
       <Sidebar />
       <Page title={<AssetHeader asset={index} />}>
         <Centered direction="col">
-          <Centered className="gap-2">
+          <Centered className="gap-2 flex-col md:flex-row">
             <AssetCard
               label="Local"
               value={
