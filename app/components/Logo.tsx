@@ -7,6 +7,7 @@ import franqLogoWhite from "@/app/assets/images/franq-logo-white.svg";
 type LogoProps = {
   white?: boolean;
   className?: string;
+  onClick?: () => void;
 };
 
 const Logo: FC<LogoProps> = ({ white, className }) => {

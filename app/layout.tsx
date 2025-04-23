@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import SessionProvider from "@/app/components/SessionProvider";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 const sora = localFont({
   src: "./assets/fonts/Sora-SemiBold.ttf",
@@ -50,7 +51,10 @@ export default function RootLayout({
         className={`${sora.variable} ${neueMontreal.variable} w-full min-h-screen antialiased`}
       >
         <QueryClientProvider client={queryClient}>
-          <SessionProvider>{children}</SessionProvider>
+          <SessionProvider>
+            <Navbar />
+            {children}
+          </SessionProvider>
         </QueryClientProvider>
       </body>
     </html>
