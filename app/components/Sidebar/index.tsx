@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 // import { twMerge } from "tailwind-merge";
@@ -36,17 +36,23 @@ const Sidebar = () => {
         className="md:hidden -ml-1"
         src={closeIcon}
         alt="close icon"
-        onClick={close}
+        // onClick={close}
       />
       {sidebarLinks.slice(0, -1).map((link) => (
-        <Link key={link.label} href={link.url} onClick={close}>
-          <Centered justify="start" className="gap-x-4">
-            <Image className="w-5" src={link.icon} alt="" />
-            <Typography className="text-white tracking-wider">
-              {link.label}
-            </Typography>
-          </Centered>
-        </Link>
+        // <Link key={link.label} href={link.url} onClick={close}>
+        //   <Centered justify="start" className="gap-x-4">
+        //     <Image className="w-5" src={link.icon} alt="" />
+        //     <Typography className="text-white tracking-wider">
+        //       {link.label}
+        //     </Typography>
+        //   </Centered>
+        // </Link>
+        <Centered key={link.label} justify="start" className="gap-x-4">
+          <Image className="w-5" src={link.icon} alt="" />
+          <Typography className="text-white tracking-wider">
+            {link.label}
+          </Typography>
+        </Centered>
       ))}
       <Centered
         className="gap-x-4 mt-auto hover:cursor-pointer"
