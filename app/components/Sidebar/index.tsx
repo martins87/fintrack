@@ -3,9 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { twMerge } from "tailwind-merge";
+// import { twMerge } from "tailwind-merge";
 
-import { useSidebarStore } from "@/app/store/useSidebarStore";
+// import { useSidebarStore } from "@/app/store/useSidebarStore";
 import Typography from "@/app/components/ui/Typography";
 import Centered from "@/app/components/ui/Centered";
 import Logo from "@/app/components/Logo";
@@ -14,18 +14,19 @@ import closeIcon from "@/app/assets/icons/close.svg";
 
 const Sidebar = () => {
   const router = useRouter();
-  const { isOpen, close } = useSidebarStore();
+  // const { isOpen, close } = useSidebarStore();
 
   const handleLogout = () => router.push("/login");
 
   return (
     <Centered
-      className={twMerge(
-        "hidden md:flex w-64 min-h-screen bg-[#1C1D21] p-4 md:p-10 gap-y-5 transition-transform duration-300 ease-in-out",
-        isOpen
-          ? "flex fixed md:static top-0 left-0 translate-x-0"
-          : "-translate-x-full"
-      )}
+      // className={twMerge(
+      //   "hidden md:flex w-64 min-h-screen bg-[#1C1D21] p-4 md:p-10 gap-y-5 transition-transform duration-300 ease-in-out",
+      //   isOpen
+      //     ? "flex fixed md:static top-0 left-0 translate-x-0"
+      //     : "-translate-x-full"
+      // )}
+      className="hidden md:flex w-64 min-h-screen bg-[#1C1D21] p-10 gap-y-5"
       direction="col"
       items="start"
       justify="start"
